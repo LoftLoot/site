@@ -3,49 +3,53 @@ async function loadToys() {
     const res = await fetch('toys.json');
     const toys = await res.json();
 
-    // Dynamically populate filters
-    ['decade', 'type', 'brand'].forEach(key =>
-      populateFilter(key + 'Filter', getUniqueValues(toys, key))
-    );
-
-    // Initial render
+    setupFilters(toys);
     renderCatalog(toys);
 
-    // Bind filters
-    ['decade', 'type', 'brand'].forEach(key => {
-      document.getElementById(key + 'Filter').addEventListener('change', () =>
-        filterToys(toys)
-      );
+    document.querySelectorAll('.sidebar input[type="checkbox"]').forEach(input => {
+      input.addEventListener('change', () => {
+        const filtered = filterToys(toys);
+        renderCatalog(filtered);
+      });
     });
   } catch (err) {
     console.error("Failed to load or parse toys.json", err);
   }
 }
 
-function getUniqueValues(items, key) {
-  return [...new Set(items.map(item => item[key]))].sort();
+function setupFilters(toys) {
+  generateCheckboxes(toys, 'decade', 'filter-decade');
+  generateCheckboxes(toys, 'type', 'filter-type');
+  generateCheckboxes(toys, 'brand', 'filter-brand');
 }
 
-function populateFilter(selectId, values) {
-  const select = document.getElementById(selectId);
-  select.innerHTML = `<option value="all">All</option>` +
-    values.map(val => `<option value="${val}">${val}</option>`).join('');
+function generateCheckboxes(data, key, containerId) {
+  const container = document.getElementById(containerId);
+  const values = [...new Set(data.map(item => item[key]))].sort();
+  container.innerHTML = values.map(value => `
+    <label>
+      <input type="checkbox" name="${key}" value="${value}" />
+      ${value}
+    </label>
+  `).join('');
 }
 
 function filterToys(toys) {
-  const filters = {
-    decade: document.getElementById('decadeFilter').value,
-    type: document.getElementById('typeFilter').value,
-    brand: document.getElementById('brandFilter').value
+  const selected = {
+    decade: getCheckedValues('decade'),
+    type: getCheckedValues('type'),
+    brand: getCheckedValues('brand')
   };
 
-  const filtered = toys.filter(toy =>
-    Object.entries(filters).every(([key, value]) =>
-      value === 'all' || toy[key] === value
-    )
+  return toys.filter(toy =>
+    (!selected.decade.length || selected.decade.includes(toy.decade)) &&
+    (!selected.type.length || selected.type.includes(toy.type)) &&
+    (!selected.brand.length || selected.brand.includes(toy.brand))
   );
+}
 
-  renderCatalog(filtered);
+function getCheckedValues(name) {
+  return Array.from(document.querySelectorAll(`input[name="${name}"]:checked`)).map(cb => cb.value);
 }
 
 function renderCatalog(toys) {
