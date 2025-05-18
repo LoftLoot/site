@@ -3,14 +3,15 @@ async function loadToys() {
     const res = await fetch('toys.json');
     const toys = await res.json();
 
-    // One-time filter population
+    // Dynamically populate filters
     ['decade', 'type', 'brand'].forEach(key =>
       populateFilter(key + 'Filter', getUniqueValues(toys, key))
     );
 
+    // Initial render
     renderCatalog(toys);
 
-    // Bind filter events once
+    // Bind filters
     ['decade', 'type', 'brand'].forEach(key => {
       document.getElementById(key + 'Filter').addEventListener('change', () =>
         filterToys(toys)
@@ -38,13 +39,13 @@ function filterToys(toys) {
     brand: document.getElementById('brandFilter').value
   };
 
-  const result = toys.filter(toy =>
+  const filtered = toys.filter(toy =>
     Object.entries(filters).every(([key, value]) =>
       value === 'all' || toy[key] === value
     )
   );
 
-  renderCatalog(result);
+  renderCatalog(filtered);
 }
 
 function renderCatalog(toys) {
@@ -53,7 +54,8 @@ function renderCatalog(toys) {
 
   for (const toy of toys) {
     const card = document.createElement('div');
-    card.className = 'card';
+    card.className = `card decade-${toy.decade}`;
+
     card.innerHTML = `
       <div class="image"></div>
       <div class="title">${toy.name}</div>
