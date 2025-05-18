@@ -1,17 +1,32 @@
-/* Layout */
+/* Base */
+* {
+  box-sizing: border-box;
+}
+
 body {
-  font-family: sans-serif;
   margin: 0;
+  font-family: system-ui, sans-serif;
   background: #f5f5f5;
   color: #222;
 }
 
 header {
-  padding: 1rem 1.5rem;
-  background: #fefefe;
-  border-bottom: 1px solid #ccc;
+  padding: 1.5rem;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
 }
 
+header h1 {
+  margin: 0 0 0.25rem 0;
+  font-size: 2rem;
+}
+
+header p {
+  margin: 0;
+  color: #555;
+}
+
+/* Layout */
 .layout {
   display: flex;
 }
@@ -22,7 +37,6 @@ header {
   padding: 1.5rem;
   background: #f0f0f0;
   border-right: 1px solid #ddd;
-  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.05);
 }
 
 .filter-group {
@@ -30,8 +44,8 @@ header {
 }
 
 .filter-group label {
-  font-weight: bold;
   display: block;
+  font-weight: bold;
   margin-bottom: 0.5rem;
 }
 
@@ -43,63 +57,74 @@ header {
   border-radius: 4px;
 }
 
-/* Catalog Grid */
+/* Main Catalog Grid */
 main#catalog {
   flex: 1;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 1.5rem;
   padding: 1.5rem;
 }
 
 /* Cards */
 .card {
-  background: white;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  padding: 1rem;
+  position: relative;
   display: flex;
   flex-direction: column;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
 }
 
+.card::before {
+  content: '';
+  display: block;
+  width: 8px;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.card.decade-1980s::before { background: #714ec6; }
+.card.decade-1990s::before { background: #1dafa7; }
+.card.decade-2000s::before { background: #ec4f4f; }
+.card.decade-2010s::before { background: #fd9100; }
+
 .card .image {
-  width: 100%;
-  height: 200px;
-  background-color: #ddd;
-  margin-bottom: 1rem;
-  border-radius: 6px;
+  height: 180px;
+  background-color: #eee;
+  border-bottom: 1px solid #ddd;
 }
 
 .card .title {
   font-size: 1.1rem;
   font-weight: bold;
-  margin-bottom: 0.25rem;
+  margin: 1rem 1rem 0.25rem 1rem;
 }
 
 .card .note {
   font-size: 0.9rem;
   color: #555;
-  margin-bottom: 0.75rem;
+  margin: 0 1rem 0.5rem 1rem;
 }
 
 .card .price {
-  margin-top: auto;
+  margin: 0 1rem 0.75rem 1rem;
   font-weight: bold;
-  margin-bottom: 0.5rem;
-  font-size: 1rem;
 }
 
-/* Buttons */
 .card .actions {
   display: flex;
   gap: 0.5rem;
+  padding: 0 1rem 1rem 1rem;
 }
 
 .card .actions a {
   flex: 1;
-  padding: 0.5rem;
   text-align: center;
+  padding: 0.5rem;
   border-radius: 4px;
   text-decoration: none;
   color: white;
