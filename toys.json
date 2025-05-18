@@ -6,14 +6,26 @@
     "link": "https://example.com/tmnt"
   },
   {
-    "name": "Pikachu Plush (1999)",
-    "description": "Official 1999 plush, good condition.",
+    "name": "Tickle Me Elmo",
+    "description": "Works – minor fading.",
+    "decade": "1980s",
+    "link": "https://example.com/elmo"
+  },
+  {
+    "name": "Crash Bandicoot",
+    "description": "Some scuffs – loose figure.",
+    "decade": "1990s",
+    "link": "https://example.com/crash"
+  },
+  {
+    "name": "Pikachu Plush",
+    "description": "8” tall – minor fading.",
     "decade": "1990s",
     "link": "https://example.com/pikachu"
   },
   {
     "name": "Bakugan Battle Pack",
-    "description": "2008 4-pack with cards.",
+    "description": "4 Bakugan, 2 cards.",
     "decade": "2000s",
     "link": "https://example.com/bakugan"
   }

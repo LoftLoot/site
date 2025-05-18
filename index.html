@@ -10,16 +10,17 @@
 <body>
   <header>
     <h1>Loft Loot</h1>
+    <p>A collection of toys across the decades. Scroll to explore.</p>
     <nav>
-      <a href="#1980s">1980s</a>
-      <a href="#1990s">1990s</a>
-      <a href="#2000s">2000s</a>
-      <button onclick="filterDecade('all')">View All</button>
+      <button onclick="filterDecade('all')">All</button>
+      <button onclick="filterDecade('1980s')">1980s</button>
+      <button onclick="filterDecade('1990s')">1990s</button>
+      <button onclick="filterDecade('2000s')">2000s</button>
     </nav>
   </header>
 
   <main id="catalog">
-    <!-- Toy sections will be rendered here -->
+    <!-- Decade sections dynamically inserted here -->
   </main>
 
   <footer>
