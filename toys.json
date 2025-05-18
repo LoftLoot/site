@@ -1,31 +1,61 @@
 [
   {
-    "name": "Battle Pet",
-    "note": "Good condition",
-    "price": "$25",
-    "decade": "1990s",
-    "type": "Plush",
-    "brand": "Battle Pets",
+    "name": "Battle Ram Chariot",
+    "note": "Classic 1984 vehicle. Some wear.",
+    "price": "$38",
+    "decade": "1980s",
+    "type": "Vehicle",
+    "brand": "He-Man",
     "ebay": "#",
     "etsy": "#"
   },
   {
-    "name": "Hero Knight",
-    "note": "Minor wear",
-    "price": "$22",
+    "name": "Skeletor (Glow Edition)",
+    "note": "Loose. Minor paint rub. 1985.",
+    "price": "$29",
+    "decade": "1980s",
+    "type": "Figure",
+    "brand": "He-Man",
+    "ebay": "#",
+    "etsy": "#"
+  },
+  {
+    "name": "Leonardo (Storage Shell)",
+    "note": "1991 variant with back storage.",
+    "price": "$24",
     "decade": "1990s",
     "type": "Figure",
-    "brand": "Power Heroes",
+    "brand": "Teenage Mutant Ninja Turtles",
     "ebay": "#",
     "etsy": "#"
   },
   {
-    "name": "Blazing Falcon",
-    "note": "Boxed",
-    "price": "$30",
-    "decade": "2000s",
+    "name": "Technodrome Playset",
+    "note": "Huge! Mostly complete.",
+    "price": "$85",
+    "decade": "1990s",
+    "type": "Playset",
+    "brand": "Teenage Mutant Ninja Turtles",
+    "ebay": "#",
+    "etsy": "#"
+  },
+  {
+    "name": "Cheetara (ThunderCats Classic)",
+    "note": "1986 figure, light scuffs.",
+    "price": "$32",
+    "decade": "1980s",
+    "type": "Figure",
+    "brand": "ThunderCats",
+    "ebay": "#",
+    "etsy": "#"
+  },
+  {
+    "name": "ThunderTank",
+    "note": "Missing one tread. Still roars!",
+    "price": "$48",
+    "decade": "1980s",
     "type": "Vehicle",
-    "brand": "Star Warriors",
+    "brand": "ThunderCats",
     "ebay": "#",
     "etsy": "#"
   }
