@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Loft Loot</title>
+  <title>Loft Loot – Vintage Toy Archive</title>
+  <meta name="description" content="Curated artifacts from the plastic past – He-Man, TMNT, ThunderCats and more. Available on eBay and Etsy.">
   <link rel="stylesheet" href="styles.css" />
   <script defer src="main.js"></script>
 </head>
@@ -14,40 +15,24 @@
   </header>
 
   <div class="layout">
-    <aside class="sidebar">
-      <div class="filter-group">
-        <label for="decadeFilter">Decade:</label>
-        <select id="decadeFilter">
-          <option value="all">All</option>
-          <option value="1980s">1980s</option>
-          <option value="1990s">1990s</option>
-          <option value="2000s">2000s</option>
-        </select>
-      </div>
-
-      <div class="filter-group">
-        <label for="typeFilter">Type:</label>
-        <select id="typeFilter">
-          <option value="all">All</option>
-          <option value="Figure">Figure</option>
-          <option value="Plush">Plush</option>
-          <option value="Electronic">Electronic</option>
-          <option value="Vehicle">Vehicle</option>
-        </select>
-      </div>
-
-      <div class="filter-group">
-        <label for="brandFilter">Brand:</label>
-        <select id="brandFilter">
-          <option value="all">All</option>
-          <option value="Mutant Lizards">Mutant Lizards</option>
-          <option value="Battle Pets">Battle Pets</option>
-          <option value="Power Heroes">Power Heroes</option>
-        </select>
-      </div>
+    <aside class="sidebar" aria-label="Filters">
+      <form id="filters" class="filter-form">
+        <div class="filter-group">
+          <label for="decadeFilter">Decade</label>
+          <select id="decadeFilter" name="decade"></select>
+        </div>
+        <div class="filter-group">
+          <label for="typeFilter">Type</label>
+          <select id="typeFilter" name="type"></select>
+        </div>
+        <div class="filter-group">
+          <label for="brandFilter">Brand</label>
+          <select id="brandFilter" name="brand"></select>
+        </div>
+      </form>
     </aside>
 
-    <main id="catalog"></main>
+    <main id="catalog" aria-label="Toy Listings"></main>
   </div>
 </body>
 </html>
