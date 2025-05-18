@@ -23,11 +23,11 @@ function renderCatalog(toys) {
     items.forEach(toy => {
       const card = document.createElement('div');
       card.className = 'toy-card';
-      card.innerHTML = \`
-        <h3>\${toy.name}</h3>
-        <p>\${toy.description}</p>
-        <a href="\${toy.link}" target="_blank">Buy</a>
-      \`;
+      card.innerHTML = `
+        <h3>${toy.name}</h3>
+        <p>${toy.description}</p>
+        <a href="${toy.link}" target="_blank">Buy</a>
+      `;
       section.appendChild(card);
     });
 
