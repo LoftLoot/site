@@ -11,9 +11,12 @@
   <header>
     <h1>Loft Loot</h1>
     <p>Curated artifacts from the plastic past</p>
-    <div class="filters">
-      <div>
-        <label>Decade:</label>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="filter-group">
+        <label for="decadeFilter">Decade:</label>
         <select id="decadeFilter">
           <option value="all">All</option>
           <option value="1980s">1980s</option>
@@ -21,8 +24,9 @@
           <option value="2000s">2000s</option>
         </select>
       </div>
-      <div>
-        <label>Type:</label>
+
+      <div class="filter-group">
+        <label for="typeFilter">Type:</label>
         <select id="typeFilter">
           <option value="all">All</option>
           <option value="Figure">Figure</option>
@@ -31,8 +35,9 @@
           <option value="Vehicle">Vehicle</option>
         </select>
       </div>
-      <div>
-        <label>Brand:</label>
+
+      <div class="filter-group">
+        <label for="brandFilter">Brand:</label>
         <select id="brandFilter">
           <option value="all">All</option>
           <option value="Mutant Lizards">Mutant Lizards</option>
@@ -40,8 +45,9 @@
           <option value="Power Heroes">Power Heroes</option>
         </select>
       </div>
-    </div>
-  </header>
-  <main id="catalog"></main>
+    </aside>
+
+    <main id="catalog"></main>
+  </div>
 </body>
 </html>
