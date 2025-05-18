@@ -27,16 +27,16 @@ function renderCatalog(toys) {
   toys.forEach(toy => {
     const card = document.createElement('div');
     card.className = 'card';
-    card.innerHTML = \`
+    card.innerHTML = `
       <div class="image"></div>
-      <div class="title">\${toy.name}</div>
-      <div class="note">\${toy.note}</div>
-      <div class="price">\${toy.price}</div>
+      <div class="title">${toy.name}</div>
+      <div class="note">${toy.note}</div>
+      <div class="price">${toy.price}</div>
       <div class="actions">
-        <a href="\${toy.ebay}" class="ebay" target="_blank">eBay</a>
-        <a href="\${toy.etsy}" class="etsy" target="_blank">Etsy</a>
+        <a href="${toy.ebay}" class="ebay" target="_blank">eBay</a>
+        <a href="${toy.etsy}" class="etsy" target="_blank">Etsy</a>
       </div>
-    \`;
+    `;
     catalog.appendChild(card);
   });
 }
