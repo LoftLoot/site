@@ -6,6 +6,7 @@ async function loadToys() {
     setupFilters(toys);
     renderCatalog(toys);
 
+    // Re-render on any checkbox change
     document.querySelectorAll('.sidebar input[type="checkbox"]').forEach(input => {
       input.addEventListener('change', () => {
         const filtered = filterToys(toys);
@@ -34,6 +35,11 @@ function generateCheckboxes(data, key, containerId) {
   `).join('');
 }
 
+function getCheckedValues(name) {
+  return Array.from(document.querySelectorAll(`input[name="${name}"]:checked`))
+    .map(cb => cb.value);
+}
+
 function filterToys(toys) {
   const selected = {
     decade: getCheckedValues('decade'),
@@ -46,10 +52,6 @@ function filterToys(toys) {
     (!selected.type.length || selected.type.includes(toy.type)) &&
     (!selected.brand.length || selected.brand.includes(toy.brand))
   );
-}
-
-function getCheckedValues(name) {
-  return Array.from(document.querySelectorAll(`input[name="${name}"]:checked`)).map(cb => cb.value);
 }
 
 function renderCatalog(toys) {
