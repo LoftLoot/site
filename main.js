@@ -1,30 +1,57 @@
 async function loadToys() {
-  const res = await fetch('toys.json');
-  const toys = await res.json();
-  renderCatalog(toys);
+  try {
+    const res = await fetch('toys.json');
+    const toys = await res.json();
 
-  document.getElementById('decadeFilter').addEventListener('change', () => filterToys(toys));
-  document.getElementById('typeFilter').addEventListener('change', () => filterToys(toys));
-  document.getElementById('brandFilter').addEventListener('change', () => filterToys(toys));
+    // One-time filter population
+    ['decade', 'type', 'brand'].forEach(key =>
+      populateFilter(key + 'Filter', getUniqueValues(toys, key))
+    );
+
+    renderCatalog(toys);
+
+    // Bind filter events once
+    ['decade', 'type', 'brand'].forEach(key => {
+      document.getElementById(key + 'Filter').addEventListener('change', () =>
+        filterToys(toys)
+      );
+    });
+  } catch (err) {
+    console.error("Failed to load or parse toys.json", err);
+  }
+}
+
+function getUniqueValues(items, key) {
+  return [...new Set(items.map(item => item[key]))].sort();
+}
+
+function populateFilter(selectId, values) {
+  const select = document.getElementById(selectId);
+  select.innerHTML = `<option value="all">All</option>` +
+    values.map(val => `<option value="${val}">${val}</option>`).join('');
 }
 
 function filterToys(toys) {
-  const decade = document.getElementById('decadeFilter').value;
-  const type = document.getElementById('typeFilter').value;
-  const brand = document.getElementById('brandFilter').value;
+  const filters = {
+    decade: document.getElementById('decadeFilter').value,
+    type: document.getElementById('typeFilter').value,
+    brand: document.getElementById('brandFilter').value
+  };
 
-  const filtered = toys.filter(toy =>
-    (decade === 'all' || toy.decade === decade) &&
-    (type === 'all' || toy.type === type) &&
-    (brand === 'all' || toy.brand === brand)
+  const result = toys.filter(toy =>
+    Object.entries(filters).every(([key, value]) =>
+      value === 'all' || toy[key] === value
+    )
   );
-  renderCatalog(filtered);
+
+  renderCatalog(result);
 }
 
 function renderCatalog(toys) {
   const catalog = document.getElementById('catalog');
   catalog.innerHTML = '';
-  toys.forEach(toy => {
+
+  for (const toy of toys) {
     const card = document.createElement('div');
     card.className = 'card';
     card.innerHTML = `
@@ -38,7 +65,7 @@ function renderCatalog(toys) {
       </div>
     `;
     catalog.appendChild(card);
-  });
+  }
 }
 
 loadToys();
