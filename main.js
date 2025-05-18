@@ -1,46 +1,44 @@
-fetch('./toys.json')
-  .then(res => res.json())
-  .then(data => renderCatalog(data));
+async function loadToys() {
+  const res = await fetch('toys.json');
+  const toys = await res.json();
+  renderCatalog(toys);
+
+  document.getElementById('decadeFilter').addEventListener('change', () => filterToys(toys));
+  document.getElementById('typeFilter').addEventListener('change', () => filterToys(toys));
+  document.getElementById('brandFilter').addEventListener('change', () => filterToys(toys));
+}
+
+function filterToys(toys) {
+  const decade = document.getElementById('decadeFilter').value;
+  const type = document.getElementById('typeFilter').value;
+  const brand = document.getElementById('brandFilter').value;
+
+  const filtered = toys.filter(toy =>
+    (decade === 'all' || toy.decade === decade) &&
+    (type === 'all' || toy.type === type) &&
+    (brand === 'all' || toy.brand === brand)
+  );
+  renderCatalog(filtered);
+}
 
 function renderCatalog(toys) {
-  const container = document.getElementById('catalog');
-  container.innerHTML = '';
-  const grouped = toys.reduce((acc, toy) => {
-    acc[toy.decade] = acc[toy.decade] || [];
-    acc[toy.decade].push(toy);
-    return acc;
-  }, {});
-
-  Object.entries(grouped).forEach(([decade, items]) => {
-    const section = document.createElement('section');
-    section.dataset.decade = decade;
-    section.id = decade;
-
-    const title = document.createElement('h2');
-    title.textContent = decade;
-    section.appendChild(title);
-
-    items.forEach(toy => {
-      const card = document.createElement('div');
-      card.className = 'toy-card';
-      card.innerHTML = `
-        <h3>${toy.name}</h3>
-        <p>${toy.description}</p>
-        <a href="${toy.link}" target="_blank">Buy</a>
-      `;
-      section.appendChild(card);
-    });
-
-    container.appendChild(section);
+  const catalog = document.getElementById('catalog');
+  catalog.innerHTML = '';
+  toys.forEach(toy => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = \`
+      <div class="image"></div>
+      <div class="title">\${toy.name}</div>
+      <div class="note">\${toy.note}</div>
+      <div class="price">\${toy.price}</div>
+      <div class="actions">
+        <a href="\${toy.ebay}" class="ebay" target="_blank">eBay</a>
+        <a href="\${toy.etsy}" class="etsy" target="_blank">Etsy</a>
+      </div>
+    \`;
+    catalog.appendChild(card);
   });
 }
 
-function filterDecade(decade) {
-  document.querySelectorAll('main section').forEach(sec => {
-    if (decade === 'all' || sec.dataset.decade === decade) {
-      sec.style.display = '';
-    } else {
-      sec.style.display = 'none';
-    }
-  });
-}
+loadToys();

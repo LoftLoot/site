@@ -1,32 +1,32 @@
 [
   {
-    "name": "Donatello (TMNT)",
-    "description": "1988 Playmates figure with staff.",
-    "decade": "1980s",
-    "link": "https://example.com/tmnt"
-  },
-  {
-    "name": "Tickle Me Elmo",
-    "description": "Works – minor fading.",
-    "decade": "1980s",
-    "link": "https://example.com/elmo"
-  },
-  {
-    "name": "Crash Bandicoot",
-    "description": "Some scuffs – loose figure.",
+    "name": "Battle Pet",
+    "note": "Good condition",
+    "price": "$25",
     "decade": "1990s",
-    "link": "https://example.com/crash"
+    "type": "Plush",
+    "brand": "Battle Pets",
+    "ebay": "#",
+    "etsy": "#"
   },
   {
-    "name": "Pikachu Plush",
-    "description": "8” tall – minor fading.",
+    "name": "Hero Knight",
+    "note": "Minor wear",
+    "price": "$22",
     "decade": "1990s",
-    "link": "https://example.com/pikachu"
+    "type": "Figure",
+    "brand": "Power Heroes",
+    "ebay": "#",
+    "etsy": "#"
   },
   {
-    "name": "Bakugan Battle Pack",
-    "description": "4 Bakugan, 2 cards.",
+    "name": "Blazing Falcon",
+    "note": "Boxed",
+    "price": "$30",
     "decade": "2000s",
-    "link": "https://example.com/bakugan"
+    "type": "Vehicle",
+    "brand": "Star Warriors",
+    "ebay": "#",
+    "etsy": "#"
   }
 ]

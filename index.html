@@ -10,21 +10,38 @@
 <body>
   <header>
     <h1>Loft Loot</h1>
-    <p>A collection of toys across the decades. Scroll to explore.</p>
-    <nav>
-      <button onclick="filterDecade('all')">All</button>
-      <button onclick="filterDecade('1980s')">1980s</button>
-      <button onclick="filterDecade('1990s')">1990s</button>
-      <button onclick="filterDecade('2000s')">2000s</button>
-    </nav>
+    <p>Curated artifacts from the plastic past</p>
+    <div class="filters">
+      <div>
+        <label>Decade:</label>
+        <select id="decadeFilter">
+          <option value="all">All</option>
+          <option value="1980s">1980s</option>
+          <option value="1990s">1990s</option>
+          <option value="2000s">2000s</option>
+        </select>
+      </div>
+      <div>
+        <label>Type:</label>
+        <select id="typeFilter">
+          <option value="all">All</option>
+          <option value="Figure">Figure</option>
+          <option value="Plush">Plush</option>
+          <option value="Electronic">Electronic</option>
+          <option value="Vehicle">Vehicle</option>
+        </select>
+      </div>
+      <div>
+        <label>Brand:</label>
+        <select id="brandFilter">
+          <option value="all">All</option>
+          <option value="Mutant Lizards">Mutant Lizards</option>
+          <option value="Battle Pets">Battle Pets</option>
+          <option value="Power Heroes">Power Heroes</option>
+        </select>
+      </div>
+    </div>
   </header>
-
-  <main id="catalog">
-    <!-- Decade sections dynamically inserted here -->
-  </main>
-
-  <footer>
-    <p>© Loft Loot</p>
-  </footer>
+  <main id="catalog"></main>
 </body>
 </html>
