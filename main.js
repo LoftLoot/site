@@ -1,4 +1,4 @@
-fetch('toys.json')
+fetch('./toys.json')
   .then(res => res.json())
   .then(data => renderCatalog(data));
 
