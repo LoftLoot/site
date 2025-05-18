@@ -49,7 +49,7 @@ function filterToys(toys) {
 }
 
 function getCheckedValues(name) {
-  return Array.from(document.querySelectorAll(\`input[name="\${name}"]:checked\`)).map(cb => cb.value);
+  return Array.from(document.querySelectorAll(`input[name="${name}"]:checked`)).map(cb => cb.value);
 }
 
 function renderCatalog(toys) {
@@ -58,24 +58,24 @@ function renderCatalog(toys) {
 
   for (const toy of toys) {
     const card = document.createElement('div');
-    card.className = \`card decade-\${toy.decade}\`;
+    card.className = `card decade-${toy.decade}`;
 
     const primaryImg = toy.images?.[0] || '';
     const secondaryImg = toy.images?.[1] || primaryImg;
 
-    card.innerHTML = \`
+    card.innerHTML = `
       <div class="image-container">
-        <img src="\${primaryImg}" alt="\${toy.name}" class="img-primary" loading="lazy" />
-        <img src="\${secondaryImg}" alt="\${toy.name} (alt)" class="img-secondary" loading="lazy" />
+        <img src="${primaryImg}" alt="${toy.name}" class="img-primary" loading="lazy" />
+        <img src="${secondaryImg}" alt="${toy.name} (alt)" class="img-secondary" loading="lazy" />
       </div>
-      <div class="title">\${toy.name}</div>
-      <div class="note">\${toy.note}</div>
-      <div class="price">\${toy.price}</div>
+      <div class="title">${toy.name}</div>
+      <div class="note">${toy.note}</div>
+      <div class="price">${toy.price}</div>
       <div class="actions">
-        <a href="\${toy.ebay}" class="ebay" target="_blank">eBay</a>
-        <a href="\${toy.etsy}" class="etsy" target="_blank">Etsy</a>
+        <a href="${toy.ebay}" class="ebay" target="_blank">eBay</a>
+        <a href="${toy.etsy}" class="etsy" target="_blank">Etsy</a>
       </div>
-    \`;
+    `;
     catalog.appendChild(card);
   }
 }
