@@ -2,7 +2,7 @@
   {
     "name": "Battle Ram Chariot",
     "note": "Classic 1984 vehicle. Some wear.",
-    "price": "$38",
+    "price": "£38.99",
     "decade": "1980s",
     "type": "Vehicle",
     "brand": "He-Man",
@@ -12,7 +12,7 @@
   {
     "name": "Skeletor (Glow Edition)",
     "note": "Loose. Minor paint rub. 1985.",
-    "price": "$29",
+    "price": "£29.99",
     "decade": "1980s",
     "type": "Figure",
     "brand": "He-Man",
@@ -22,7 +22,7 @@
   {
     "name": "Leonardo (Storage Shell)",
     "note": "1991 variant with back storage.",
-    "price": "$24",
+    "price": "£24.99",
     "decade": "1990s",
     "type": "Figure",
     "brand": "Teenage Mutant Ninja Turtles",
@@ -32,7 +32,7 @@
   {
     "name": "Technodrome Playset",
     "note": "Huge! Mostly complete.",
-    "price": "$85",
+    "price": "£85.99",
     "decade": "1990s",
     "type": "Playset",
     "brand": "Teenage Mutant Ninja Turtles",
@@ -42,7 +42,7 @@
   {
     "name": "Cheetara (ThunderCats Classic)",
     "note": "1986 figure, light scuffs.",
-    "price": "$32",
+    "price": "£4.99",
     "decade": "1980s",
     "type": "Figure",
     "brand": "ThunderCats",
@@ -52,7 +52,7 @@
   {
     "name": "ThunderTank",
     "note": "Missing one tread. Still roars!",
-    "price": "$48",
+    "price": "£14.99",
     "decade": "1980s",
     "type": "Vehicle",
     "brand": "ThunderCats",
