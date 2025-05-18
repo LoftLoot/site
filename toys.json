@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Donatello (TMNT)",
+    "description": "1988 Playmates figure with staff.",
+    "decade": "1980s",
+    "link": "https://example.com/tmnt"
+  },
+  {
+    "name": "Pikachu Plush (1999)",
+    "description": "Official 1999 plush, good condition.",
+    "decade": "1990s",
+    "link": "https://example.com/pikachu"
+  },
+  {
+    "name": "Bakugan Battle Pack",
+    "description": "2008 4-pack with cards.",
+    "decade": "2000s",
+    "link": "https://example.com/bakugan"
+  }
+]
