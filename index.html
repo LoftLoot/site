@@ -16,20 +16,18 @@
 
   <div class="layout">
     <aside class="sidebar" aria-label="Filters">
-      <form id="filters" class="filter-form">
-        <div class="filter-group">
-          <label for="decadeFilter">Decade</label>
-          <select id="decadeFilter" name="decade"></select>
-        </div>
-        <div class="filter-group">
-          <label for="typeFilter">Type</label>
-          <select id="typeFilter" name="type"></select>
-        </div>
-        <div class="filter-group">
-          <label for="brandFilter">Brand</label>
-          <select id="brandFilter" name="brand"></select>
-        </div>
-      </form>
+      <section class="filter-section">
+        <h2>Decade</h2>
+        <div id="filter-decade"></div>
+      </section>
+      <section class="filter-section">
+        <h2>Type</h2>
+        <div id="filter-type"></div>
+      </section>
+      <section class="filter-section">
+        <h2>Brand</h2>
+        <div id="filter-brand"></div>
+      </section>
     </aside>
 
     <main id="catalog" aria-label="Toy Listings"></main>
